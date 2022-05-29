@@ -70,7 +70,6 @@ body {
 
 .learn-page {
   /* margin-top: 5rem; */
-  height: 100vh;
   width: 100vw;
   background-color: black;
 }
@@ -82,6 +81,12 @@ body {
 }
 
 .learn-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 12rem;
+  width: 100vw;
+  height: 100vh;
   padding-top: 5rem;
   color: white;
 }
@@ -97,6 +102,14 @@ body {
 }
 
 .shop-buttons {
+  font-size: 2rem;
+  line-height: 1rem;
+  margin-top: 6rem;
+  text-align: center;
+  color: #ed462f;
+}
+
+.learn-buttons {
   font-size: 2rem;
   line-height: 1rem;
   margin-top: 6rem;
@@ -151,4 +164,19 @@ body {
 .products {
   display: flex;
   justify-content: center;
+}
+#learn-section{
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.left-side{
+  width: 100%;
+  padding: 3rem;
+  color: #ed462f;
+  font-size: 3rem;
+}
+.right-side{
+  width: 100%;
+  padding: 3rem;
 }
