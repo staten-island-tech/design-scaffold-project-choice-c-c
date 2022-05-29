@@ -1,4 +1,3 @@
-import { urlSafeDecode } from "@aws-amplify/core";
 import "./style.css";
 
 const allProducts = [
@@ -47,9 +46,74 @@ document.querySelector("#content").innerHTML = `
 document.getElementById("learn").onclick = function () {
   document.querySelector("#content").innerHTML = `
       <div class="learn-page">
-        <div class="learn-content">LEARN PAGE HERE</div>
+        <div class="learn-content">
+          <div class="learn-buttons">
+            <h3 id="learn-button-about">ABOUT US</h3>
+            <h3 id="learn-button-faq">FAQ</h3>
+            <h3 id="learn-button-contact">CONTACT US</h3>
+          </div>
+        <div id="learn-section">
+        <div class="left-side">
+          ABOUT US
+        </div>
+        <div class="right-side">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu viverra eu sociis aliquet 
+          libero, donec tortor posuere. 
+          Potenti vel facilisis ut lorem ipsum morbi mi duis. Tellus hendrerit neque dictum adipiscing 
+          varius pharetra. Praesent amet sit venenatis augue eget 
+          suspendisse risus sapien.
+        </div>
+        </div>
+        </div>
       </div>
 `;
+document.getElementById("learn-button-about").onclick = function () {
+  console.log('clicked');
+  document.querySelector("#learn-section").innerHTML = `
+      <div class="left-side">
+        ABOUT US
+      </div>
+      <div class="right-side">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu viverra eu sociis aliquet 
+      libero, donec tortor posuere. 
+      Potenti vel facilisis ut lorem ipsum morbi mi duis. Tellus hendrerit neque dictum adipiscing 
+      varius pharetra. Praesent amet sit venenatis augue eget 
+      suspendisse risus sapien.
+      </div>
+`;
+};
+
+document.getElementById("learn-button-faq").onclick = function () {
+  console.log('clicked');
+  document.querySelector("#learn-section").innerHTML = `
+      <div class="left-side">
+        FAQ
+      </div>
+      <div class="right-side">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu viverra eu sociis aliquet 
+      libero, donec tortor posuere. 
+      Potenti vel facilisis ut lorem ipsum morbi mi duis. Tellus hendrerit neque dictum adipiscing 
+      varius pharetra. Praesent amet sit venenatis augue eget 
+      suspendisse risus sapien.
+      </div>
+`;
+};
+
+document.getElementById("learn-button-contact").onclick = function () {
+  console.log('clicked');
+  document.querySelector("#learn-section").innerHTML = `
+      <div class="left-side">
+        CONTACT US
+      </div>
+      <div class="right-side">
+      <Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu viverra eu sociis aliquet 
+      libero, donec tortor posuere. 
+      Potenti vel facilisis ut lorem ipsum morbi mi duis. Tellus hendrerit neque dictum adipiscing 
+      varius pharetra. Praesent amet sit venenatis augue eget 
+      suspendisse risus sapien.>
+      </div>
+`;
+};
 };
 document.getElementById("shop").onclick = function () {
   let showAllProducts = allProducts.map(function (product) {
@@ -80,9 +144,11 @@ document.getElementById("shop").onclick = function () {
   // document.getElementById("image1").src = "/images/image1.jpg";
 };
 document.getElementById("recordIcon").onclick = function () {
+  console.log('clicked');
   document.querySelector("#content").innerHTML = `
       <div id="home">
         <div class="homeTitle">RECORD SHOP</div>
       </div>
 `;
 };
+
