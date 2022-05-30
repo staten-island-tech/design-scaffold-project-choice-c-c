@@ -144,12 +144,27 @@ body {
 }
 
 #shop-button-all {
+  transition: all .2s ease-in-out; 
+  cursor: pointer;
+}
+#shop-button-all:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 #shop-button-collections {
+  transition: all .2s ease-in-out; 
+  cursor: pointer;
+}
+#shop-button-collections:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 #shop-button-best-sellers {
+  transition: all .2s ease-in-out; 
+  cursor: pointer;
+}
+#shop-button-best-sellers:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -162,11 +177,13 @@ body {
 }
 
 #grid > div {
+  transition: all .2s ease-in-out; 
   box-shadow:  2px 2px 4px rgba(0,0,0,0.3);
 }
 
 #grid > div:hover {
-  box-shadow:  2px 2px 4px rgba(0,0,0,0.6);
+  transform: scale(1.1);
+  box-shadow:  2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .grid1 {
@@ -189,13 +206,6 @@ body {
 }
 .grid6 {
   grid-area: 2 / 3 / 3 / 4;
-}
-
-.title {
-  /* color: white; */
-}
-.price {
-  /* color: white; */
 }
 
 .products {
@@ -234,7 +244,6 @@ body {
 .input{
   height: 100%;
   border: none;
-  /* color: white; */
   font-size: 1.5rem;
   background: transparent;
 }
