@@ -9,12 +9,18 @@
   <body>
     <div id="app">
       <div class="navBar">
-        <div id="recordIcon"><img src="./images/recordIcon.png" /></div>
+        <div id="recordIcon"><img src="./images/recordIcon.svg" class="image" /></div>
         <div class="navBarButtons">
           <div id="learn">LEARN</div>
           <div id="shop">SHOP</div>
         </div>
-        <div class="cart">CART</div>
+        <div class="cart">
+          <input type="radio" id="theme" name="theme" value="dark">
+          <label for="html">Dark Mode</label>
+          <input type="radio" id="theme" name="theme" value="light">
+          <label for="css">Light Mode</label>
+          <div class="cart-button">CART(0)</div>
+        </div>
       </div>
       <div id="content"></div>
     </div>
