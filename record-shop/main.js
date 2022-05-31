@@ -1,48 +1,35 @@
 import "./style.css";
+import { allProducts } from "./js/allProducts";
+import  { collections } from "./js/collections";
+import { bestSellers } from "./js/bestSellers";
 
-const allProducts = [
-  {
-    number: 1,
-    name: "Rihanna - ANTI",
-    price: 29.99,
-    location: "./images/image1",
-  },
-  {
-    number: 2,
-    name: "Tyler, The Creator - Flower Boy",
-    price: 29.99,
-    location: "./images/image2",
-  },
-  {
-    number: 3,
-    name: "Japanese Breakfast - Jubilee",
-    price: 29.99,
-    location: "./images/image3",
-  },
-  {
-    number: 4,
-    name: "Mac Miller - The Divine Feminine",
-    price: 29.99,
-    location: "./images/image4",
-  },
-  {
-    number: 5,
-    name: "Lorde - Melodrama",
-    price: 29.99,
-    location: "./images/image5",
-  },
-  {
-    number: 6,
-    name: "Tame Impala - Currents",
-    price: 29.99,
-    location: "./images/image6",
-  },
-];
-document.querySelector("#content").innerHTML = `
-      <div id="home">
-        <div class="homeTitle">RECORD SHOP</div>
+window.addEventListener('load', () => {
+  document.body.classList.add('dark-mode');
+  document.querySelector("#content").innerHTML = `
+      <div id="home-div" class="home">
+        <div class="homeTitle">...Loading</div>
       </div>
 `;
+  gsap.to(".homeTitle", {duration: 2, text: "Record Shop", delay: 1});
+
+});
+let radios = document.querySelectorAll('input[name="theme"]');
+
+for (let i = 0; i < radios.length; i++) {
+  radios[i].addEventListener("change", function() {
+      document.body.classList.toggle('dark-mode');
+      const homeClassList = document.querySelector("#home-div").classList;
+      if(homeClassList[0] === 'home'){
+        document.querySelector(".home").classList.replace('home', 'home-light')
+        document.querySelector(".image").classList.replace('image', 'image-dark');
+      }else{
+        document.querySelector(".home-light").classList.replace('home-light', 'home')
+        document.querySelector(".image-dark").classList.replace('image-dark', 'image');
+      }
+
+  });
+}
+
 document.getElementById("learn").onclick = function () {
   document.querySelector("#content").innerHTML = `
       <div class="learn-page">
@@ -106,12 +93,24 @@ document.getElementById("learn-button-contact").onclick = function () {
         CONTACT US
       </div>
       <div class="right-side">
-      <Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu viverra eu sociis aliquet 
-      libero, donec tortor posuere. 
-      Potenti vel facilisis ut lorem ipsum morbi mi duis. Tellus hendrerit neque dictum adipiscing 
-      varius pharetra. Praesent amet sit venenatis augue eget 
-      suspendisse risus sapien.>
-      </div>
+      <form class="form">
+        <div class="line">
+          <label>NAME*</label>
+          <input type="text" id="fname" name="fname" class="input">
+        </div>
+        <div class="line">
+          <label>EMAIL*</label>
+          <input type="text" id="email" name="email" class="input">
+        </div>
+        <div class="line">
+          <label>SUBJECT*</label>
+          <input type="text" id="subject" name="subject" class="input">
+        </div>
+        <div class="line">
+          <label>MESSAGE*</label>
+          <input type="text" id="message" name="message" class="input">
+        </div>
+      </form>
 `;
 };
 };
@@ -119,12 +118,31 @@ document.getElementById("shop").onclick = function () {
   let showAllProducts = allProducts.map(function (product) {
     return `<div class="grid${product.number}">
                <div>
-                 <img id="image1" src="/images/image${product.number}.jpg" />
+                 <img id="image1" src=${product.location} />
                  <div class="title">${product.name}</div>
                  <div class="price">${product.price}</div>
                </div>
              </div>`;
   });
+  let showCollections = collections.map(function (collection) {
+    return `<div class="grid${collection.number}">
+               <div>
+                 <img id="image1" src=${collection.location} />
+                 <div class="title">${collection.name}</div>
+                 <div class="price">${collection.price}</div>
+               </div>
+             </div>`;
+  });
+  let showBestSellers = bestSellers.map(function (bestSeller) {
+    return `<div class="grid${bestSeller.number}">
+               <div>
+                 <img id="image1" src=${bestSeller.location} />
+                 <div class="title">${bestSeller.name}</div>
+                 <div class="price">${bestSeller.price}</div>
+               </div>
+             </div>`;
+  });
+
   document.querySelector("#content").innerHTML = `
       <div class="shop-page">
         <div class="shop-content">
@@ -140,15 +158,40 @@ document.getElementById("shop").onclick = function () {
         </div>
       </div>
 `;
+
   document.getElementById("grid").innerHTML = showAllProducts.join("");
-  // document.getElementById("image1").src = "/images/image1.jpg";
+  document.getElementById("shop-button-all").onclick = function () {
+    document.getElementById("grid").innerHTML = showAllProducts.join("");
+    var tl = new TimelineLite();
+    tl.from("#grid",1,{ top:'-10%' , ease: Elastic.easeOut })
+      .to("#grid",1,{ top:'100%', ease: Elastic.easeIn } ,'+=1');
+  };
+  document.getElementById("shop-button-collections").onclick = function () {
+    document.getElementById("grid").innerHTML = showCollections.join("");
+  };
+  document.getElementById("shop-button-best-sellers").onclick = function () {
+    document.getElementById("grid").innerHTML = showBestSellers.join("");
+  };
+  
 };
+
 document.getElementById("recordIcon").onclick = function () {
   console.log('clicked');
   document.querySelector("#content").innerHTML = `
-      <div id="home">
+      <div class="home">
         <div class="homeTitle">RECORD SHOP</div>
       </div>
 `;
 };
+var scales = [{scale:1.6}, {scale:0.2}, {scale:1}];
 
+  gsap.to('#grid', {
+    motionPath: {
+      path: scales, 
+      curviness: 0
+    }, 
+    duration: 3, 
+    ease: "none",
+    repeat: -1,
+    repeatDelay: 1
+  });

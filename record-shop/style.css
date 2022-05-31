@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "LeagueGothic";
+  src: url("./fonts/LeagueGothic-Regular.ttf");
+  src: url("./fonts/LeagueGothic-Regular.ttf") format("ttf"),
+  }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -8,27 +14,52 @@
   padding: 0;
   height: 100vh;
   width: 100vw;
+  font-family: "LeagueGothic";
+  letter-spacing: .1rem;
 }
 
-#home {
+.dark-mode{
+  background-color: black;
+  color: white;
+}
+.light-mode{
+  background-color: white;
+  color: black;
+}
+
+.home {
   height: 100vh;
   width: 100vw;
   background-image: url(./images/home-page-pic.avif);
   background-size: cover;
 }
 
+.home-light{
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./images/home-page-pic-light.jpg);
+  background-size: cover;
+}
+
 body {
+  /* background-color: black; */
   margin: 0;
 }
 
 .homeTitle {
-  font-size: 8rem;
+  font-size: 14rem;
   position: absolute;
   bottom: 0;
-  color: white;
+  /* color: white; */
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+}
+
+.homeTitle > div {
+  position: relative;
+  margin: 0;
 }
 
 .navBar {
@@ -40,7 +71,7 @@ body {
 }
 
 .navBarButtons {
-  color: white;
+  /* color: white; */
   font-weight: 500;
   font-size: 2rem;
   line-height: 1.8rem;
@@ -48,14 +79,19 @@ body {
   cursor: pointer;
 }
 .cart {
+  display: flex;
   position: absolute;
   right: 0;
   margin-right: 1rem;
-  color: white;
+  /* color: white; */
   font-weight: 500;
   font-size: 2rem;
   line-height: 1.8rem;
   cursor: pointer;
+}
+
+.cart-button{
+  margin-left: 12rem;
 }
 
 #recordIcon {
@@ -69,15 +105,11 @@ body {
 }
 
 .learn-page {
-  /* margin-top: 5rem; */
   width: 100vw;
-  background-color: black;
 }
 
 .shop-page {
-  /* margin-top: 5rem; */
   width: 100vw;
-  background-color: black;
 }
 
 .learn-content {
@@ -88,7 +120,7 @@ body {
   width: 100vw;
   height: 100vh;
   padding-top: 5rem;
-  color: white;
+  /* color: white; */
 }
 
 .shop-content {
@@ -98,7 +130,7 @@ body {
   padding-top: 12rem;
   width: 100vw;
   padding-top: 5rem;
-  color: white;
+  /* color: white; */
 }
 
 .shop-buttons {
@@ -118,12 +150,27 @@ body {
 }
 
 #shop-button-all {
+  transition: all .2s ease-in-out; 
+  cursor: pointer;
+}
+#shop-button-all:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 #shop-button-collections {
+  transition: all .2s ease-in-out; 
+  cursor: pointer;
+}
+#shop-button-collections:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 #shop-button-best-sellers {
+  transition: all .2s ease-in-out; 
+  cursor: pointer;
+}
+#shop-button-best-sellers:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -135,7 +182,20 @@ body {
   grid-row-gap: 2rem;
 }
 
+#grid > div {
+  transition: all .2s ease-in-out; 
+  box-shadow:  2px 2px 4px rgba(0,0,0,0.3);
+}
+
+#grid > div:hover {
+  transform: scale(1.1);
+  box-shadow:  2px 2px 4px rgba(0,0,0,0.5);
+}
+
 .grid1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.grid1:hover {
   grid-area: 1 / 1 / 2 / 2;
 }
 .grid2 {
@@ -154,13 +214,6 @@ body {
   grid-area: 2 / 3 / 3 / 4;
 }
 
-.title {
-  color: white;
-}
-.price {
-  color: white;
-}
-
 .products {
   display: flex;
   justify-content: center;
@@ -177,6 +230,41 @@ body {
   font-size: 3rem;
 }
 .right-side{
+  font-size: 1.5rem;
+  line-height: 2rem;
   width: 100%;
   padding: 3rem;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.line{
+  border-bottom: 2px solid white;
+  margin-bottom: 1rem;
+}
+
+.input{
+  height: 100%;
+  border: none;
+  font-size: 1.5rem;
+  background: transparent;
+}
+
+.image{
+  filter: brightness(100%) saturate(0%) invert(0%) sepia(96%) hue-rotate(70deg) contrast(104%);
+}
+
+.image-dark{
+  filter: brightness(0%) saturate(100%) invert(0%) sepia(96%) hue-rotate(70deg) contrast(104%);
+}
+
+.split-parent {
+  overflow: hidden;
+}
+.split-child {
+  display: inline-block;
 }

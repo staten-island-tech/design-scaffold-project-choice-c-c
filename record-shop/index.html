@@ -9,15 +9,24 @@
   <body>
     <div id="app">
       <div class="navBar">
-        <div id="recordIcon"><img src="./images/recordIcon.png" /></div>
+        <div id="recordIcon"><img src="./images/recordIcon.svg" class="image" /></div>
         <div class="navBarButtons">
           <div id="learn">LEARN</div>
           <div id="shop">SHOP</div>
         </div>
-        <div class="cart">CART</div>
+        <div class="cart">
+          <input type="radio" id="theme" name="theme" value="dark">
+          <label for="html">Dark Mode</label>
+          <input type="radio" id="theme" name="theme" value="light">
+          <label for="css">Light Mode</label>
+          <div class="cart-button">CART(0)</div>
+        </div>
       </div>
       <div id="content"></div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/MotionPathPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/TextPlugin.min.js"></script>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
