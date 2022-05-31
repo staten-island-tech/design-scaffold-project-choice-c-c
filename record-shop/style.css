@@ -54,6 +54,12 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+}
+
+.homeTitle > div {
+  position: relative;
+  margin: 0;
 }
 
 .navBar {
@@ -254,4 +260,11 @@ body {
 
 .image-dark{
   filter: brightness(0%) saturate(100%) invert(0%) sepia(96%) hue-rotate(70deg) contrast(104%);
+}
+
+.split-parent {
+  overflow: hidden;
+}
+.split-child {
+  display: inline-block;
 }

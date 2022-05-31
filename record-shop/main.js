@@ -199,9 +199,11 @@ window.addEventListener('load', () => {
   document.body.classList.add('dark-mode');
   document.querySelector("#content").innerHTML = `
       <div id="home-div" class="home">
-        <div class="homeTitle">RECORD SHOP</div>
+        <div class="homeTitle">...Loading</div>
       </div>
 `;
+  gsap.to(".homeTitle", {duration: 2, text: "Record Shop", delay: 1});
+
 });
 let radios = document.querySelectorAll('input[name="theme"]');
 
@@ -308,7 +310,7 @@ document.getElementById("shop").onclick = function () {
   let showAllProducts = allProducts.map(function (product) {
     return `<div class="grid${product.number}">
                <div>
-                 <img id="image1" src=${product.location} />
+                 <img id="image1" alt=${product.name} src=${product.location} />
                  <div class="title">${product.name}</div>
                  <div class="price">${product.price}</div>
                </div>
@@ -317,7 +319,7 @@ document.getElementById("shop").onclick = function () {
   let showCollections = collections.map(function (collection) {
     return `<div class="grid${collection.number}">
                <div>
-                 <img id="image1" src=${collection.location} />
+                 <img id="image1" alt=${product.name} src=${collection.location} />
                  <div class="title">${collection.name}</div>
                  <div class="price">${collection.price}</div>
                </div>
@@ -326,12 +328,13 @@ document.getElementById("shop").onclick = function () {
   let showBestSellers = bestSellers.map(function (bestSeller) {
     return `<div class="grid${bestSeller.number}">
                <div>
-                 <img id="image1" src=${bestSeller.location} />
+                 <img id="image1" alt=${product.name} src=${bestSeller.location} />
                  <div class="title">${bestSeller.name}</div>
                  <div class="price">${bestSeller.price}</div>
                </div>
              </div>`;
   });
+
   document.querySelector("#content").innerHTML = `
       <div class="shop-page">
         <div class="shop-content">
@@ -347,10 +350,25 @@ document.getElementById("shop").onclick = function () {
         </div>
       </div>
 `;
-  document.getElementById("grid").innerHTML = showAllProducts.join("");
 
+  document.getElementById("grid").innerHTML = showAllProducts.join("");
+  var scales = [{scale:1.6}, {scale:0.2}, {scale:1}];
+
+  gsap.to('#grid', {
+    motionPath: {
+      path: scales, 
+      curviness: 0
+    }, 
+    duration: 3, 
+    ease: "none",
+    repeat: -1,
+    repeatDelay: 1
+  });
   document.getElementById("shop-button-all").onclick = function () {
     document.getElementById("grid").innerHTML = showAllProducts.join("");
+    var tl = new TimelineLite();
+    tl.from("#grid",1,{ top:'-10%' , ease: Elastic.easeOut })
+      .to("#grid",1,{ top:'100%', ease: Elastic.easeIn } ,'+=1');
   };
   document.getElementById("shop-button-collections").onclick = function () {
     document.getElementById("grid").innerHTML = showCollections.join("");
@@ -358,7 +376,7 @@ document.getElementById("shop").onclick = function () {
   document.getElementById("shop-button-best-sellers").onclick = function () {
     document.getElementById("grid").innerHTML = showBestSellers.join("");
   };
-
+  
 };
 
 document.getElementById("recordIcon").onclick = function () {
