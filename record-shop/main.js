@@ -1,199 +1,7 @@
 import "./style.css";
-
-const allProducts = [
-  {
-    number: 1,
-    name: "Ariana Grande - Sweetener",
-    price: 29.99,
-    location: "./images/ariana-grande.jpg",
-  },
-  {
-    number: 2,
-    name: "Carolina Polachek - Pang",
-    price: 29.99,
-    location: "./images/caroline-polachek.jpg",
-  },
-  {
-    number: 3,
-    name: "Frank Ocean - Blonde",
-    price: 29.99,
-    location: "./images/frank-ocean.jpg",
-  },
-  {
-    number: 4,
-    name: "Harry Styles - Fine Line",
-    price: 29.99,
-    location: "./images/harry-styles.jpg",
-  },
-  {
-    number: 5,
-    name: "Japanese Breakfast - Jubilee",
-    price: 29.99,
-    location: "./images/japanese-breakfast.jpg",
-  },
-  {
-    number: 6,
-    name: "Lorde - Melodrama",
-    price: 29.99,
-    location: "./images/lorde.jpg",
-  },
-  {
-    number: 7,
-    name: "Mac Miller - The Divine Feminine",
-    price: 29.99,
-    location: "./images/mac-miller.jpg",
-  },
-  {
-    number: 8,
-    name: "Pheobe Bridgers - Punisher",
-    price: 29.99,
-    location: "./images/phoebe-bridgers.jpg",
-  },
-  {
-    number: 9,
-    name: "Rihanna - ANTI",
-    price: 29.99,
-    location: "./images/rihanna.jpg",
-  },
-  {
-    number: 10,
-    name: "Tame Impala - Currents",
-    price: 29.99,
-    location: "./images/tame-impala.jpg",
-  },
-  {
-    number: 11,
-    name: "Taylor Swift - Folklore",
-    price: 29.99,
-    location: "./images/taylor-swift.jpg",
-  },
-  {
-    number: 12,
-    name: "Tyler, The Creator - Flower Boy",
-    price: 29.99,
-    location: "./images/tyler-the-creator.jpg",
-  },
-  {
-    number: 4,
-    name: "Harry Styles - Fine Line",
-    price: 29.99,
-    location: "./images/harry-styles.jpg",
-  },
-];
-
-const collections = [
-  {
-    number: 1,
-    name: "Rihanna - ANTI",
-    price: 29.99,
-    location: "./images/rihanna.jpg",
-  },
-  {
-    number: 2,
-    name: "Tyler, The Creator - Flower Boy",
-    price: 29.99,
-    location: "./images/tyler-the-creator.jpg",
-  },
-  {
-    number: 3,
-    name: "Japanese Breakfast - Jubilee",
-    price: 29.99,
-    location: "./images/japanese-breakfast.jpg",
-  },
-  {
-    number: 4,
-    name: "Mac Miller - The Divine Feminine",
-    price: 29.99,
-    location: "./images/mac-miller.jpg",
-  },
-  {
-    number: 5,
-    name: "Lorde - Melodrama",
-    price: 29.99,
-    location: "./images/lorde.jpg",
-  },
-  {
-    number: 6,
-    name: "Tame Impala - Currents",
-    price: 29.99,
-    location: "./images/tame-impala.jpg",
-  },
-  {
-    number: 7,
-    name: "Carolina Polachek - Pang",
-    price: 29.99,
-    location: "./images/caroline-polachek.jpg",
-  },
-  {
-    number: 8,
-    name: "Ariana Grande - Sweetener",
-    price: 29.99,
-    location: "./images/ariana-grande.jpg",
-  },
-  {
-    number: 9,
-    name: "Frank Ocean - Blonde",
-    price: 29.99,
-    location: "./images/frank-ocean.jpg",
-  },
-  {
-    number: 10,
-    name: "Harry Styles - Fine Line",
-    price: 29.99,
-    location: "./images/harry-styles.jpg",
-  },
-  {
-    number: 11,
-    name: "Taylor Swift - Folklore",
-    price: 29.99,
-    location: "./images/taylor-swift.jpg",
-  },
-  {
-    number: 12,
-    name: "Pheobe Bridgers - Punisher",
-    price: 29.99,
-    location: "./images/phoebe-bridgers.jpg",
-  },
-]
-
-const bestSellers = [
-  {
-    number: 1,
-    name: "Harry Styles - Fine Line",
-    price: 29.99,
-    location: "./images/harry-styles.jpg",
-  },
-  {
-    number: 2,
-    name: "Tyler, The Creator - Flower Boy",
-    price: 29.99,
-    location: "./images/tyler-the-creator.jpg",
-  },
-  {
-    number: 3,
-    name: "Taylor Swift - Folklore",
-    price: 29.99,
-    location: "./images/taylor-swift.jpg",
-  },
-  {
-    number: 4,
-    name: "Ariana Grande - Sweetener",
-    price: 29.99,
-    location: "./images/ariana-grande.jpg",
-  },
-  {
-    number: 5,
-    name: "Lorde - Melodrama",
-    price: 29.99,
-    location: "./images/lorde.jpg",
-  },
-  {
-    number: 6,
-    name: "Frank Ocean - Blonde",
-    price: 29.99,
-    location: "./images/frank-ocean.jpg",
-  },
-]
+import { allProducts } from "./js/allProducts";
+import  { collections } from "./js/collections";
+import { bestSellers } from "./js/bestSellers";
 
 window.addEventListener('load', () => {
   document.body.classList.add('dark-mode');
@@ -310,7 +118,7 @@ document.getElementById("shop").onclick = function () {
   let showAllProducts = allProducts.map(function (product) {
     return `<div class="grid${product.number}">
                <div>
-                 <img id="image1" alt=${product.name} src=${product.location} />
+                 <img id="image1" src=${product.location} />
                  <div class="title">${product.name}</div>
                  <div class="price">${product.price}</div>
                </div>
@@ -319,7 +127,7 @@ document.getElementById("shop").onclick = function () {
   let showCollections = collections.map(function (collection) {
     return `<div class="grid${collection.number}">
                <div>
-                 <img id="image1" alt=${product.name} src=${collection.location} />
+                 <img id="image1" src=${collection.location} />
                  <div class="title">${collection.name}</div>
                  <div class="price">${collection.price}</div>
                </div>
@@ -328,7 +136,7 @@ document.getElementById("shop").onclick = function () {
   let showBestSellers = bestSellers.map(function (bestSeller) {
     return `<div class="grid${bestSeller.number}">
                <div>
-                 <img id="image1" alt=${product.name} src=${bestSeller.location} />
+                 <img id="image1" src=${bestSeller.location} />
                  <div class="title">${bestSeller.name}</div>
                  <div class="price">${bestSeller.price}</div>
                </div>
@@ -352,18 +160,6 @@ document.getElementById("shop").onclick = function () {
 `;
 
   document.getElementById("grid").innerHTML = showAllProducts.join("");
-  var scales = [{scale:1.6}, {scale:0.2}, {scale:1}];
-
-  gsap.to('#grid', {
-    motionPath: {
-      path: scales, 
-      curviness: 0
-    }, 
-    duration: 3, 
-    ease: "none",
-    repeat: -1,
-    repeatDelay: 1
-  });
   document.getElementById("shop-button-all").onclick = function () {
     document.getElementById("grid").innerHTML = showAllProducts.join("");
     var tl = new TimelineLite();
@@ -387,4 +183,15 @@ document.getElementById("recordIcon").onclick = function () {
       </div>
 `;
 };
+var scales = [{scale:1.6}, {scale:0.2}, {scale:1}];
 
+  gsap.to('#grid', {
+    motionPath: {
+      path: scales, 
+      curviness: 0
+    }, 
+    duration: 3, 
+    ease: "none",
+    repeat: -1,
+    repeatDelay: 1
+  });

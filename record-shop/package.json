@@ -9,5 +9,9 @@
   },
   "devDependencies": {
     "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "cloudinary": "^1.30.0",
+    "cloudinary-core": "^2.12.3"
   }
 }
